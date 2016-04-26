@@ -1,0 +1,118 @@
+        Release 3.1.18 of cpuminer-opt is available for download.
+
+
+All users are encouraged to upgrade.
+
+cpuminer-opt now supports 32 algorithms on CPUs with at least SSE2
+capabilities including Intel Core2 and AMD equivalent. See the
+performance chart below for details.
+
+In addition 13 algorithms have optimizations to take advantage of
+CPUs with AES_NI for even greater performance, including the Intel
+Sandy Bridge (Core-i 2xxx) and AMD equivalent.
+
+New in v3.1.18
+
+  - fixed compile problems with AMD CPUs with workaround, see README.md
+    for details.
+
+Recently added dependencies:
+
+  - gmp
+  - libboost-dev
+  - libboost-system-dev
+  - libboost-thread-dev
+
+Recently added algos:
+
+  - m7m
+  - hodl added with support for CPUs with and without AES_NI
+  - argon2 
+  - decred (blake256r14)
+  - vanilla (blake256r8vnl)
+  - x14 added with AES_NI and SSE2 optimizations
+  - blake
+  - blake2s
+  - yescrypt
+  - scryptjane
+  - scrypt
+  - sha256d
+
+Recently improved algos:
+
+  - x11gost (sib) optimised:
+      +116% AES_NI + SSE2
+       +63% SSE2
+  - nist5 optimised tor AES_NI & SSE2
+      +111% AES_NI + SSE2
+       +68% SSE2
+  - c11 +57% optimized for AES_NI & SSE2
+  - zr5 optimized for AES_NI and SSE2
+       +98% AES_NI + SSE2
+       +45% SSE2
+  - myr-gr optimized for AES_NI, marginal increase in hashrate
+
+Users with non-SSE2 CPUs or whoi want to mine algos not supported by
+cpuminer-opt may find cpuminer-multi by TPruvot useful.
+
+The performance chart below is for an Intel i7-6700K @ 4 GHz, 16 GB mem.
+
+Normalization rates have ben added to the chart to help with profit
+switching pools. Reference algo x11 = 1.
+
+Due to the peculiarities of some algorithms their performance on other CPU
+architectures may not scale equally. Their normalizations rates will also
+differ from those listed below. YMMV.
+
+Normalized profitability = algo profitability * normalization rate
+
+               AES_NI    SSE2(1)   norm rate(5)
+               ------    ----      ---------
+x11             740 K    525 K        1
+x13             373      298          0.50
+x14             357      271          0.48
+x15             333      270          0.45
+x17(2)          317      248          0.43
+quark          1195      924          1.61
+qubit          1090      765          1.45
+nist5          2000     1592          3.37
+zr5             850      650          1.15    
+x11gost         540      404          0.73
+c11             733      475          0.99
+myr-gr         1572     1560          2.12
+cryptonight     290 H    165 H        0.00039
+hodl            275      200 H        0.00037
+neoscrypt       (4)       32 K        0.043
+lyra2re         (4)      930          1.25
+lyra2rev2       (4)      495          0.65
+argon2          (4)     33.7          0.045
+m7m             (4)     48.7          0.066
+groestl         (4)      931          1.26 
+skein           (4)     5747          7.77
+skein2          (4)     8675         11.7
+pentablake      (4)     3960          5.35
+keccak          (4)     7790         10.5
+scrypt          (4)      113          0.153
+sha256d         (4)     62.5          0.084
+blake           (4)     22.4 M       30.4
+blake2s         (4)     17.5         23.6
+vanilla         (4)     33.0         44.6
+decred          (4)     22.6         30.5 
+axiom           (4)       72 H        0.098
+yescrypt        (4)     3760          0.0051
+scryptjane      (4)      250          0.00034
+blakecoin(2)    (4)     33.9 M       45.8
+cryptolight(2)  (4)      685 H        0.00093
+pluck(2)        (4)     1925 H        0.0026
+drop(2)         (4)      934 K        1.26
+fresh(2)        (4)      528 K        0.71
+
+Footnotes:
+(1) SSE2 rates are simulated in software.
+(2) benchmark tested only
+(3) CPU architecture not supported for algo. It won't work.
+(4) AES_NI Optimization not available for CPU artchitecture. Uses SSE2, slower.
+(5) Normalised profitability = algo profitability * norm rate, x11 = 1
+Unlisted algos are in an unknown state
+
+
