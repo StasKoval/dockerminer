@@ -6,7 +6,7 @@
 #
 
 FROM		ubuntu:14.04
-ENV v=0.0.1
+ENV v=0.0.2
 #MAINTAINER	Guillaume J. Charmes <guillaume@charmes.net>
 
 RUN		apt-get update -qq
