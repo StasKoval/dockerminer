@@ -15,7 +15,7 @@ RUN		apt-get install -qqy libssl-dev libcurl4-openssl-dev libjansson-dev
 RUN		apt-get install -qqy git libboost-dev libboost-system-dev  libboost-thread-dev
 RUN		apt-get install -qqy make
 
-RUN		git clone https://github.com/StasKoval/dockerminer.git
+RUN		git clone https://github.com/StasKoval/dockerminer.git cpuminer
 
 RUN		cd cpuminer && ./autogen.sh
 RUN		cd cpuminer && ./configure CFLAGS="-O3"
