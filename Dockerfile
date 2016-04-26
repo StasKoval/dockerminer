@@ -5,7 +5,7 @@
 #
 #
 
-FROM		ubuntu:16.04
+FROM		ubuntu:14.04
 ENV v=0.0.1
 #MAINTAINER	Guillaume J. Charmes <guillaume@charmes.net>
 
