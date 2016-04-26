@@ -6,11 +6,12 @@
 #
 
 FROM		ubuntu:16.04
-MAINTAINER	Guillaume J. Charmes <guillaume@charmes.net>
+ENV v=0.0.1
+#MAINTAINER	Guillaume J. Charmes <guillaume@charmes.net>
 
 RUN		apt-get update -qq
 
-RUN		apt-get install -qqy automake
+RUN		apt-get install -qqy gcc build-essential automake
 RUN		apt-get install -qqy libssl-dev libcurl4-openssl-dev libjansson-dev
 RUN		apt-get install -qqy git libboost-dev libboost-system-dev  libboost-thread-dev
 RUN		apt-get install -qqy make
